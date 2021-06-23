@@ -38,8 +38,11 @@ def liquor_type():
             break
 
 
+    drink_id = random_drink["idDrink"]
 
+    print("You have selected drink id",drink_id)
 
+    # todo: Step 2 - get drink details by id like this: www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
 
 
 
