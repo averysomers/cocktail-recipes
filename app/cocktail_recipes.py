@@ -6,6 +6,8 @@ from requests.models import encode_multipart_formdata
 import requests
 import json
 
+from requests.models import encode_multipart_formdata
+
 load_dotenv()
 
 import random 
@@ -28,10 +30,9 @@ def liquor_type():
     liquor_data = json.loads(response.text)
 
     drinks = liquor_data["drinks"]
-    # random_drink = random.choice(drinks)
-    # print("Cocktail choice:",random_drink["strDrink"])
 
     while True:
+   
         random_drink = random.choice(drinks)
         print("*Cocktail choice:",random_drink["strDrink"])
 
