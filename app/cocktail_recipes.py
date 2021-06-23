@@ -24,14 +24,10 @@ def liquor_type():
     liquor_data = json.loads(response.text)
 
     drinks = liquor_data["drinks"]
-    num_drinks = len(drinks)
-
-    index = random.randrange(num_drinks)
-    random_drink = drinks[index]
+    random_drink = random.choice(drinks)
     print("Cocktail choice:",random_drink["strDrink"])
 
 liquor_type()
-
 
 # for l in (liquor_data["drinks"]):
 #     valid_options = [l["strDrink"]]
