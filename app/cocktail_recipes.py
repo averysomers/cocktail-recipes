@@ -42,6 +42,9 @@ def liquor_type():
 
     drink_id = random_drink["idDrink"]
 
+    print("You have selected drink id",drink_id)
+    # Step 2 - get drink details by id like this: www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
+
     request_url_id = f"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i={drink_id}"
     id_response = requests.get(request_url_id)
     id_data = json.loads(id_response.text)
