@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 import requests
 import json
 
+from requests.models import encode_multipart_formdata
+
 load_dotenv()
 
 import random
@@ -10,7 +12,7 @@ import random
 # COCKTAIL_API = os.getenv("COCKTAIL_API") -- NOT SURE WE NEED THIS
 
 def liquor_type():
-    liquor = input("Please select a liquor type: ")
+    liquor = input("Please select a liquor type: ").lower()
     valid_selections = ["whiskey", "whisky", "beer", "port", "vermouth", "everclear", "absinthe", "cider", "brandy", "aperol", "wine", "gin", "vodka", "rum", "tequila"]
     if liquor not in valid_selections:
         print("OOPS, invalid liquor type. Please try again.")
@@ -24,8 +26,22 @@ def liquor_type():
     liquor_data = json.loads(response.text)
 
     drinks = liquor_data["drinks"]
-    random_drink = random.choice(drinks)
-    print("Cocktail choice:",random_drink["strDrink"])
+
+
+    while True:
+   
+        random_drink = random.choice(drinks)
+        print("Cocktail choice:",random_drink["strDrink"])
+
+        user_choice = input("Do you want this type of cocktail? If so, type 'yes' If no, hit enter: ").lower()
+        if  user_choice == "yes":
+            break
+
+
+
+
+
+
 
 liquor_type()
 
